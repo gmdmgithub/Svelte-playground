@@ -1,28 +1,34 @@
 <script>
-  export let name;
-  let points = 100;
+  import Navbar from './Navbar.svelte';
+  import Player from './Player.svelte';
 
-  const addPoint = () => points +=1;
-  const removePoint = () => points -=1;
-  
+let playersList = [
+	{
+		name: "Alex Doe",
+		points: 23
+	},
+	{
+		name: "Max Johnson",
+		points: 65
+
+	},
+	{
+		name: "Donald Mose",
+		points: 76
+	}
+];
+
 </script>
 
 <style>
-  h1 {
-    color: #530f53;
-  }
 </style>
-
+<Navbar />
 <div class="container">
-  <div class="card">
-    <h1>Hello {name}!</h1>
-    <h3>{points}</h3>
-	<button class="btn" on:click={addPoint}>Add</button>
-	<button class="btn btn-dark" on:click={removePoint}>Subtract</button>
-	{#if points > 102}
-	<br>
-	
-	<input type="number" bind:value={points}>
-	{/if}
-  </div>
+{#if playersList.length === 0}
+	<p>No players</p>
+{:else}
+	{#each playersList as player}
+		<Player name={player.name} points={player.points} />
+	{/each}
+{/if}
 </div>
