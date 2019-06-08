@@ -22,7 +22,7 @@ Install the dependencies...
 
 ```bash
 cd svelte-app
-npm install
+npm i
 ```
 
 ...then start [Rollup](https://rollupjs.org): - rollup is a module bundler similar to webpack
