@@ -10,7 +10,7 @@
   const removePoint = () => (points -= 1);
 
   const removePlayer = e => {
-      console.log(e.target.attributes.playerID.value);
+      id = e.target.attributes.playerID.value;
       
     dispacher("removeplayer", id);
   };

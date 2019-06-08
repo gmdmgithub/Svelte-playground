@@ -29,6 +29,13 @@ const addPlayer = (e)=>{
 	playersList = [...playersList, newPlayer]
 }
 
+const removePlayer = (e) =>{
+	console.log(e);
+	
+	const id = e.detail;
+	playersList = playersList.filter(player => player.id != id)
+}
+
 </script>
 
 <style>
@@ -40,7 +47,7 @@ const addPlayer = (e)=>{
 	<p>No players</p>
 {:else}
 	{#each playersList as player}
-		<Player name={player.name} points={player.points} id={player.id}/>
+		<Player name={player.name} points={player.points} id={player.id} on:removeplayer={removePlayer}/>
 	{/each}
 {/if}
 </div>
